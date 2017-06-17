@@ -1,0 +1,23 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{2C700638-89F0-2675-EE62-7E16BEE4DA4C}") = "PlanetMiner", "Assembly-CSharp.csproj", "{B6B2BE63-0793-0152-BDA6-747E3EEE1F48}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B6B2BE63-0793-0152-BDA6-747E3EEE1F48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6B2BE63-0793-0152-BDA6-747E3EEE1F48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6B2BE63-0793-0152-BDA6-747E3EEE1F48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6B2BE63-0793-0152-BDA6-747E3EEE1F48}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal

@@ -10,14 +10,15 @@ public class Controles : MonoBehaviour {
 	private bool onBackThruster;
 	private bool onRight;
 	private bool onLeft;
-	private Quaternion lastRotation;
+	private float lastRotation;
 	public float maxTurnSpeed;
+	public float maxThrustSpeed;
 	
 
 	// Use this for initialization
 	void Start () 
 	{
-		
+		lastRotation = 0;
 		body = GetComponent<Rigidbody2D>();
 		onLeft = false;
 		onRight = false;
@@ -70,34 +71,27 @@ public class Controles : MonoBehaviour {
 	
 	void FixedUpdate()
 	{
-		if(onThruster)
+		if(onThruster && Mathf.Sqrt(Mathf.Pow(Mathf.Abs(body.velocity.y),2) + Mathf.Pow(Mathf.Abs(body.velocity.x),2)) <= maxThrustSpeed)
 		{
 			body.AddForce(transform.up * thrustSpeed);
 		}
 		
-		if(onBackThruster)
+		if(onBackThruster && Mathf.Sqrt(Mathf.Pow(Mathf.Abs(body.velocity.y),2) + Mathf.Pow(Mathf.Abs(body.velocity.x),2)) <= maxThrustSpeed)
 		{
 			body.AddForce(transform.up* -1 * thrustSpeed);
 		}
 		
-		if(onRight)
+		if(onRight && Mathf.Abs(body.rotation - lastRotation) <= maxTurnSpeed)
 		{
-			if(transform.rotation.z - lastRotation[2] <= maxTurnSpeed)
-			{
-				body.AddTorque(turnSpeed * -1);
-			}
+			body.AddTorque(turnSpeed * -1);
 		}
 		
-		if(onLeft)
+		if(onLeft && Mathf.Abs(body.rotation - lastRotation) <= maxTurnSpeed)
 		{
-			if(transform.rotation.z - lastRotation[2] <= maxTurnSpeed)
-			{
-				body.AddTorque(turnSpeed);
-			}
+			body.AddTorque(turnSpeed);
 		}
-		print(transform.rotation.z);
 		
-		lastRotation = transform.rotation;
+		lastRotation = body.rotation;
 	}
 	
 }
