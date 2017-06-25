@@ -13,6 +13,8 @@ public class Controles : MonoBehaviour {
 	private float lastRotation;
 	public float maxTurnSpeed;
 	public float maxThrustSpeed;
+	public ParticleSystem particaleThrust;
+	public int particaleIntence;
 	
 
 	// Use this for initialization
@@ -74,11 +76,20 @@ public class Controles : MonoBehaviour {
 		if(onThruster && Mathf.Sqrt(Mathf.Pow(Mathf.Abs(body.velocity.y),2) + Mathf.Pow(Mathf.Abs(body.velocity.x),2)) <= maxThrustSpeed)
 		{
 			body.AddForce(transform.up * thrustSpeed);
+			particaleThrust.Emit(particaleIntence);
+		}
+		else
+		{
+			body.AddForce(transform.up * (thrustSpeed/2));
 		}
 		
 		if(onBackThruster && Mathf.Sqrt(Mathf.Pow(Mathf.Abs(body.velocity.y),2) + Mathf.Pow(Mathf.Abs(body.velocity.x),2)) <= maxThrustSpeed)
 		{
 			body.AddForce(transform.up* -1 * thrustSpeed);
+		}
+		else
+		{
+			body.AddForce(transform.up* -1 * (thrustSpeed/2));
 		}
 		
 		if(onRight && Mathf.Abs(body.rotation - lastRotation) <= maxTurnSpeed)
@@ -90,6 +101,7 @@ public class Controles : MonoBehaviour {
 		{
 			body.AddTorque(turnSpeed);
 		}
+		print(Mathf.Sqrt(Mathf.Pow(Mathf.Abs(body.velocity.y),2) + Mathf.Pow(Mathf.Abs(body.velocity.x),2)));
 		
 		lastRotation = body.rotation;
 	}

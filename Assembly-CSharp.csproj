@@ -45,9 +45,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\FallowPlayer.cs" />
      <Compile Include="Assets\script\AddGravity.cs" />
      <Compile Include="Assets\script\Controles.cs" />
+     <Compile Include="Assets\script\FallowPlayer.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>F:/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
